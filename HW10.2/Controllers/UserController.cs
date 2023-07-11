@@ -65,6 +65,17 @@ namespace HW10._2.Controllers
             return View();
         }
 
+        public ActionResult TransferAmt()
+        {
+            // Money transfer logic goes here  
+            return Content(Request.Form["amt"] + " has been transferred to account " + Request.Form["act"]);
+        }
+
+        public ActionResult Index()
+        {
+            return View("TransferAmt");
+        }
+
 
 
     }
