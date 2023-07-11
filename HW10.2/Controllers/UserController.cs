@@ -67,7 +67,7 @@ namespace HW10._2.Controllers
 
         public ActionResult TransferAmt()
         {
-            // Money transfer logic goes here  
+              
             return Content(Request.Form["amt"] + " has been transferred to account " + Request.Form["act"]);
         }
 
