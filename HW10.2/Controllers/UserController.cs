@@ -1,5 +1,6 @@
 ﻿using HW10._2.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
 namespace HW10._2.Controllers
@@ -11,12 +12,13 @@ namespace HW10._2.Controllers
         {
             this.userRepository = (UserRepository?)userRepository;
         }
-        
+
 
         [BindProperty]
         public User user { get; set; }
-        [BindProperty]
-        public Account account { get; set; }
+
+
+
 
 
         public IActionResult Login()
@@ -25,17 +27,17 @@ namespace HW10._2.Controllers
         }
         public IActionResult ShowData(User inputuser)
         {
-           user = inputuser;
+            user = inputuser;
             return View("ShowData");
         }
-      
+
 
 
 
         public ActionResult UserLogin(User user)
         {
             var myuser = userRepository.GetUser(user.Ncode);
-           
+
             if (myuser == null)
             {
                 ViewBag.ErrorMessage = "there isnt user with this nationalcode";
@@ -46,8 +48,24 @@ namespace HW10._2.Controllers
             return RedirectToAction("ShowData");
 
         }
+        public IActionResult CreateCookie()
+        {
+            string key = "DemoCookie";
+             string value = "masi";
+            var cookieOptions = new CookieOptions();
+            cookieOptions.Expires = DateTime.Now.AddDays(7);
+            cookieOptions.Path = "/";
+            Response.Cookies.Append(key, value, cookieOptions);
+            return View();
+        }
+        public IActionResult ReadData()
+        {
+            string key = "DemoCookie";
+            var CookieValue = Request.Cookies[key];
+            return View();
+        }
 
-        
-   
+
+
     }
 }
