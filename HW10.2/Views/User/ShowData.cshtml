@@ -1,0 +1,38 @@
+﻿@using Newtonsoft.Json
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+@model HW10._2.Models.User;
+
+<div class="alert alert-primary">
+    <h1>
+        Your Welcom
+    </h1>
+
+    @*    <form method="post" asp-controller="User" asp-action="AccontTurnover">
+        <input type="hidden" name="Ncode" value="@Model.Ncode">
+        <button type="submit" class="btn btn-primary">Bank account turnover</button>
+        </form>
+
+        <form method="post" asp-controller="User" asp-action="Account">
+        <input type="hidden" name="Ncode" value="@Model.Ncode">
+        <button type="submit" class="btn btn-Primary">Your account</button>
+        </form>*@
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Account">Your Account</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="AccountTurnover">AccountTurnover</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">back</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
