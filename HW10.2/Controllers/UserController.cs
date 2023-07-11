@@ -32,7 +32,8 @@ namespace HW10._2.Controllers
         }
 
 
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
 
         public ActionResult UserLogin(User user)
         {
